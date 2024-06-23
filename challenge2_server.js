@@ -21,6 +21,7 @@ db.serialize(() => {
     stmt.run("user1", "password1");
     stmt.run("user2", "password2");
     stmt.run("user3", "password3");
+    stmt.run("admin", "rawngonHFIngw");
     stmt.finalize();
 });
 

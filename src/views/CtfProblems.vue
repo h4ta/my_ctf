@@ -9,7 +9,9 @@
               <h3>{{ problem.title }}</h3>
               <p>{{ problem.description }}</p>
               <p>Points: {{ problem.points }}</p>
-              <button @click="startChallenge(problem.url)">Start Challenge</button>
+              <a :href="problem.url" target="_blank">
+                <button>Start Challenge</button>
+              </a>
               <input type="text" v-model="answers[problem.id]" placeholder="Enter your flag">
               <button @click="submitAnswer(problem.id)">Submit Answer</button>
               <br>
@@ -47,9 +49,6 @@
         });
     },
     methods: {
-      startChallenge(url) {
-        window.location.href = url;
-      },
       submitAnswer(problemId) {
         const answer = this.answers[problemId];
         fetch('http://localhost:3000/api/problems', {
